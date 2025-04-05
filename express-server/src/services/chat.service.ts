@@ -118,7 +118,33 @@ class ChatService {
     hoursData: BusinessHours
   ): BusinessHoursResponse {
     const now = new Date();
-    const dayOfWeek = now.toLocaleDateString("ko-KR", { weekday: "long" });
+    const dayOfWeek = now
+      .toLocaleDateString("en-US", { weekday: "long" })
+      .toLowerCase();
+
+    // 휴일 체크
+    const isHoliday = hoursData.holidays.some(
+      (holiday) =>
+        new Date(holiday.date)
+          .toLocaleDateString("en-US", { weekday: "long" })
+          .toLowerCase() === dayOfWeek
+    );
+
+    if (isHoliday) {
+      const holiday = hoursData.holidays.find(
+        (h) =>
+          new Date(h.date)
+            .toLocaleDateString("en-US", { weekday: "long" })
+            .toLowerCase() === dayOfWeek
+      );
+      return {
+        openTime: "-",
+        closeTime: "-",
+        isOpen: false,
+        description: holiday ? holiday.description : "오늘은 휴일입니다.",
+      };
+    }
+
     const todayHours = hoursData.regular[dayOfWeek];
 
     return {
