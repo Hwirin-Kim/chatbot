@@ -1,14 +1,18 @@
 import { Request, Response } from "express";
-import { ChromaService } from "../services/chroma.service";
+import { chromaService } from "../services/chroma.service";
 import { AddDocumentRequest, QueryRequest } from "../types/chroma.types";
-
-// ChromaService 인스턴스 생성
-const chromaService = new ChromaService();
 
 export const embeddingController = {
   async addDocument(req: Request<{}, {}, AddDocumentRequest>, res: Response) {
     try {
-      const { collectionName, document, questions } = req.body;
+      const {
+        collectionName,
+        document,
+        questions,
+        answerType,
+        functionPath,
+        parameters,
+      } = req.body;
 
       if (!collectionName || !document || !questions) {
         return res.status(400).json({ error: "Missing required fields" });
@@ -18,7 +22,10 @@ export const embeddingController = {
       const result = await chromaService.addDocument(
         collectionName,
         document,
-        questions
+        questions,
+        answerType,
+        functionPath,
+        parameters
       );
 
       res.json({ success: true, message: result.message });

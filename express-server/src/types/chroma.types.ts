@@ -17,10 +17,10 @@ export interface BaseMetadata {
 
 export interface AnswerMetadata extends BaseMetadata {
   type: "answer";
-  answerType: AnswerType;
+  answerType: string;
   id: string;
-  functionPath?: string; // function 타입일 경우 API 경로
-  parameters?: Record<string, any>; // function 타입일 경우 필요한 파라미터
+  functionPath?: string;
+  parameters?: string;
 }
 
 export interface QuestionMetadata extends BaseMetadata {

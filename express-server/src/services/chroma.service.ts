@@ -35,13 +35,13 @@ async function createDocumentEntries(
     embedding: documentEmbedding,
     metadata: {
       type: "answer",
-      answerType,
+      answerType: answerType.toString(),
       id: answerId,
-      ...(answerType === "function" && {
-        functionPath,
-        parameters,
-      }),
-    } as AnswerMetadata,
+      functionPath:
+        answerType === "function" ? functionPath?.toString() : undefined,
+      parameters:
+        answerType === "function" ? JSON.stringify(parameters) : undefined,
+    },
     id: answerId,
   });
 
@@ -56,8 +56,8 @@ async function createDocumentEntries(
       embedding: questionEmbeddings[index],
       metadata: {
         type: "question",
-        answerId: answerId,
-      } as QuestionMetadata,
+        answerId: answerId.toString(),
+      },
       id: `question_${timestamp}_${index}`,
     });
   });
@@ -220,16 +220,20 @@ export class ChromaService {
           matchedQuestion: mostSimilarQuestion.document || "",
         };
         return [textAnswer];
-      } else {
+      } else if (answerMetadata.answerType === "function") {
         const functionAnswer: FunctionAnswer = {
           type: "function",
           content: answerMetadata.functionPath || "",
-          parameters: answerMetadata.parameters,
+          parameters: answerMetadata.parameters
+            ? JSON.parse(answerMetadata.parameters)
+            : undefined,
           distance: mostSimilarQuestion.distance,
           matchedQuestion: mostSimilarQuestion.document || "",
         };
         return [functionAnswer];
       }
+
+      return [];
     } catch (error) {
       console.error("Error querying collection:", error);
       throw error;
@@ -262,3 +266,5 @@ export class ChromaService {
     }
   }
 }
+
+export const chromaService = new ChromaService();
