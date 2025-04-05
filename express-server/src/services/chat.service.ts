@@ -25,6 +25,7 @@ class ChatService {
       if (answers.length === 0) {
         return {
           answer: "죄송합니다. 질문을 이해하지 못했습니다.",
+          answerType: "text",
         };
       }
 
@@ -37,6 +38,7 @@ class ChatService {
           answer: result,
           matchedQuestion: answer.matchedQuestion,
           distance: answer.distance,
+          answerType: "function",
         };
       }
 
@@ -45,11 +47,13 @@ class ChatService {
         answer: answer.content,
         matchedQuestion: answer.matchedQuestion,
         distance: answer.distance,
+        answerType: "text",
       };
     } catch (error) {
       console.error("Error in handleQuery:", error);
       return {
         answer: "죄송합니다. 오류가 발생했습니다.",
+        answerType: "text",
       };
     }
   }
@@ -72,6 +76,7 @@ class ChatService {
         }
         case "/api/cafe/business-hours": {
           const hoursData = cafeService.getBusinessHours();
+          console.log(hoursData);
           responseData = this.convertToBusinessHoursResponse(hoursData);
           break;
         }

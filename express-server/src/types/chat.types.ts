@@ -6,6 +6,7 @@ export interface ChatResponse {
   answer: string;
   matchedQuestion?: string;
   distance?: number;
+  answerType: "function" | "text";
 }
 
 // API 응답 타입들
