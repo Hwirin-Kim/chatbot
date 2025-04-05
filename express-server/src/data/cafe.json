@@ -1,0 +1,242 @@
+{
+  "cafeInfo": {
+    "name": "카페 클로드",
+    "address": "서울특별시 강남구 선릉로 123길 45",
+    "phone": "02-555-6789",
+    "sns": {
+      "instagram": "@cafe_claude",
+      "kakao_channel": "@cafeclaude"
+    }
+  },
+  "businessHours": {
+    "regular": {
+      "monday": { "open": "08:00", "close": "22:00" },
+      "tuesday": { "open": "08:00", "close": "22:00" },
+      "wednesday": { "open": "08:00", "close": "22:00" },
+      "thursday": { "open": "08:00", "close": "22:00" },
+      "friday": { "open": "08:00", "close": "23:00" },
+      "saturday": { "open": "10:00", "close": "23:00" },
+      "sunday": { "open": "10:00", "close": "22:00" }
+    },
+    "holidays": [
+      {
+        "date": "2024-01-01",
+        "description": "신정"
+      },
+      {
+        "date": "2024-02-09~2024-02-11",
+        "description": "설날"
+      }
+    ],
+    "specialNotes": "매월 첫째 월요일은 정기 휴무입니다."
+  },
+  "menu": {
+    "coffee": [
+      {
+        "name": "아메리카노",
+        "price": 4500,
+        "isAvailable": true,
+        "category": "coffee",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "카페라떼",
+        "price": 5000,
+        "isAvailable": true,
+        "category": "coffee",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "바닐라라떼",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "coffee",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "카라멜마키아또",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "coffee",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "콜드브루",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "coffee",
+        "options": {
+          "hot": false,
+          "ice": true
+        }
+      }
+    ],
+    "tea": [
+      {
+        "name": "얼그레이",
+        "price": 4500,
+        "isAvailable": true,
+        "category": "tea",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "캐모마일",
+        "price": 4500,
+        "isAvailable": true,
+        "category": "tea",
+        "options": {
+          "hot": true,
+          "ice": false
+        }
+      },
+      {
+        "name": "페퍼민트",
+        "price": 4500,
+        "isAvailable": true,
+        "category": "tea",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "유자차",
+        "price": 5000,
+        "isAvailable": true,
+        "category": "tea",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "말차라떼",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "tea",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      }
+    ],
+    "beverage": [
+      {
+        "name": "초코라떼",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "beverage",
+        "options": {
+          "hot": true,
+          "ice": true
+        }
+      },
+      {
+        "name": "딸기스무디",
+        "price": 6000,
+        "isAvailable": false,
+        "category": "beverage",
+        "options": {
+          "hot": false,
+          "ice": true
+        }
+      },
+      {
+        "name": "망고스무디",
+        "price": 6000,
+        "isAvailable": true,
+        "category": "beverage",
+        "options": {
+          "hot": false,
+          "ice": true
+        }
+      },
+      {
+        "name": "요거트스무디",
+        "price": 6000,
+        "isAvailable": true,
+        "category": "beverage",
+        "options": {
+          "hot": false,
+          "ice": true
+        }
+      },
+      {
+        "name": "밀크쉐이크",
+        "price": 6500,
+        "isAvailable": true,
+        "category": "beverage",
+        "options": {
+          "hot": false,
+          "ice": true
+        }
+      }
+    ],
+    "dessert": [
+      {
+        "name": "티라미수",
+        "price": 6500,
+        "isAvailable": true,
+        "category": "dessert"
+      },
+      {
+        "name": "초코케이크",
+        "price": 6500,
+        "isAvailable": true,
+        "category": "dessert"
+      },
+      {
+        "name": "당근케이크",
+        "price": 6500,
+        "isAvailable": false,
+        "category": "dessert"
+      },
+      {
+        "name": "크로플",
+        "price": 5500,
+        "isAvailable": true,
+        "category": "dessert"
+      },
+      {
+        "name": "마카롱",
+        "price": 3000,
+        "isAvailable": true,
+        "category": "dessert"
+      }
+    ]
+  },
+  "facilities": {
+    "parking": {
+      "available": true,
+      "description": "건물 지하 2시간 무료주차"
+    },
+    "wifi": {
+      "available": true,
+      "name": "Claude_Cafe",
+      "password": "welcometocafe"
+    },
+    "seats": {
+      "total": 50,
+      "tables": {
+        "2인석": 10,
+        "4인석": 8,
+        "6인석": 2
+      }
+    }
+  }
+}
