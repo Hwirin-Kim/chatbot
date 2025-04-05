@@ -1,0 +1,9 @@
+FROM chromadb/chroma
+
+EXPOSE 8000
+
+ENV CHROMA_SERVER_HOST="0.0.0.0"
+ENV CHROMA_SERVER_PORT=8000
+ENV CHROMA_SERVER_CORS_ORIGINS="*"
+
+CMD ["python", "-m", "chromadb.app"] 

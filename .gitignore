@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+**/.env
+
+# Build outputs
+dist/
+build/
+
+# Docker volumes
+chroma-data/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
